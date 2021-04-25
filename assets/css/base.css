@@ -1,0 +1,135 @@
+:root {
+        --white-color: white;
+        --tim-color: #BB70DA;
+        --base-color: #19B8D4;
+}
+@keyframes animal {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+    
+}
+@keyframes displauu {
+    from {
+        display: flex;
+        flex-direction: column;
+    }
+    to {
+        display: flex;
+        flex-direction: row;
+    }
+}
+@font-face {
+    font-family: 'roboto';
+    src: url('../font/Roboto/Roboto-Regular.ttf');
+}
+@font-face {
+    font-family: 'back';
+    src: url('../font/Roboto/Roboto-Black.ttf');
+}
+* {
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+}
+html {
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'roboto';
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+.couser__base {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color:var(--base-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: animal ease-out 0.5s;
+    display: none;
+}
+.couser__base-head {
+    color: var(--white-color);
+    font-family: 'back';
+    letter-spacing: 1px;
+    font-size: 2.4rem;
+}
+.couser__base-list {
+    color: var(--white-color);
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    margin: 6px 0;
+}
+.couser__base-botton {
+    background-color: var(--white-color);
+    color: var(--base-color);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 1.4rem;
+    margin-top: 25px;
+    letter-spacing: 1px;
+}
+.transfom {
+    transform: translateX(0) !important;  
+}
+.action {
+    background-color: azure  !important ;
+}
+.none {
+    display: none !important;
+}
+.icon__base {
+    position: fixed;
+    z-index: 1000000;
+    right: 30px;
+    bottom: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #555555;
+    color: var(--white-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon__base:hover {
+    cursor: pointer;
+}
+.icon__base-img {
+    width: 30px;
+    height: 30px;
+    background-color: #555555;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    left: -15px;
+    padding: 8px;
+}
+.icon__base-img > img {
+    width: 100%;
+   
+}
+.icon__base-sub {
+    position: absolute;
+    top: 0;
+    background-color: #F66570;
+    color: var(--white-color);
+    font-size: 0.8rem;
+    padding: 0 4px;
+}
+.icon__base-number {
+    font-size: 2.5rem;
+}
+.icon__base-number > span {
+    font-size: 1rem;
+    position: absolute;
+    top: 14px;
+    left: 12px;
+}
