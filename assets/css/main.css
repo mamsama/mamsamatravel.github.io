@@ -1,4 +1,7 @@
 
+body {
+    overflow: hidden;
+}
 .header {
     height: 900px;
     background-image: url('http://www.nicdarkthemes.com/themes/travel/wp/demo/love-travel/wp-content/uploads/sites/3/2018/11/parallax-2.jpg');
@@ -817,6 +820,7 @@
     font-size: 4rem;
     font-family: 'back';
     color: #555555;
+    line-height: 1;
 }
 .adress__navbar-list2 {
     margin: 60px 0;

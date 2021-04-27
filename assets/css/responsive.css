@@ -112,4 +112,13 @@
    .dress__end span:last-child {
         margin-bottom: 10px
    }
-    };
+   .main {
+       padding: 20px 0;
+   }
+   .main__information-content, .main__tours {
+    padding: 0 20px;
+    }
+    .dress__end  {
+        height: 90px;
+    }
+};
