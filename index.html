@@ -123,6 +123,7 @@
   </head>
   <body>
     <div class="container">
+        <audio id="audio" src="./assets/music/music.mp3"></audio>
         <div class="input">
          <h1>Nhập Ngày Tháng Sinh</h1>
         <input  id="userInput" placeholder="VD: 2707" />
@@ -146,6 +147,7 @@
       const submitButton = document.querySelector("#submitButton");
       const input = document.querySelector(".input");
       const userInput = document.querySelector("#userInput");
+      const audio = document.querySelector("#audio");
     const expectedValue = "0211"; // Số mà bạn mong muốn
       let fireworks;
 
@@ -194,6 +196,7 @@
 
       // Gán sự kiện click cho nút
       button.addEventListener("click", function () {
+        audio.play()
         if (fireworks) {
           fireworks.stop(); // Dừng pháo hoa nếu đã chạy
         }
