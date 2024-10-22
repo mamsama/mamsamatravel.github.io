@@ -91,6 +91,7 @@
             width: 200px;
             border: 1px solid #ccc;
             border-radius: 5px;
+
         }
 
     /* fallback until better support for mask-border */
@@ -200,7 +201,10 @@
         if (fireworks) {
           fireworks.stop(); // Dừng pháo hoa nếu đã chạy
         }
-        container.style.backgroundColor = "black";
+        container.style.backgroundImage = "linear-gradient(0,rgba(0,0,0, 0.5),rgba(0,0,0, 0.5)),url('./assets/img/img1.jpg')"
+        container.style.backgroundOrigin = "border-box"
+        container.style.backgroundRepeat = "no-repeat"
+        container.style.backgroundSize = "cover"
         content.style.display = "none";
         startFireworks(); // Khởi động lại pháo hoa
         // Tạo bóng bay mỗi giây
