@@ -30,6 +30,7 @@
       }
 
       .content {
+        display: none;
         transform: translateY(-25%);
       }
 
@@ -56,6 +57,17 @@
         animation: fadeIn 6s ease-in-out;
       }
 
+       .submit-button {
+        padding: 10px 20px;
+        font-size: 1.2em;
+        margin-top: 20px;
+        background-color: #ff3366;
+        border: none;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
       .celebrate-btn:hover {
         background-color: #ff6699;
       }
@@ -73,6 +85,14 @@
                     mask-border: var(--_m);
         clip-path: polygon(-41% 0,50% 91%, 141% 0);
     }
+    input {
+            padding: 10px;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
 
     /* fallback until better support for mask-border */
         @supports not (-webkit-mask-box-image: var(--_m)) { 
@@ -104,6 +124,11 @@
   </head>
   <body>
     <div class="container">
+        <div class="input">
+         <h1>Nhập Ngày Tháng Sinh</h1>
+        <input  id="userInput" placeholder="VD: 2707" />
+         <button class="submit-button " id="submitButton">Kiểm Tra</button>
+       </div>
       <div class="content">
         <h1 class="happy-birthday">Chúc Mừng Sinh Nhật Vợ Yêu!</h1>
         <p class="message">
@@ -119,6 +144,10 @@
       const button = document.querySelector(".celebrate-btn");
       const container = document.querySelector(".container");
       const content = document.querySelector(".content");
+      const submitButton = document.querySelector("#submitButton");
+      const input = document.querySelector(".input");
+      const userInput = document.querySelector("#userInput");
+    const expectedValue = "0211"; // Số mà bạn mong muốn
       let fireworks;
 
       // Hàm khởi tạo và bắt đầu pháo hoa
@@ -177,6 +206,16 @@
             createBalloon();
         }, 1000);
       });
+      // Hàm xử lý sự kiện nhấn nút kiểm tra
+        submitButton.addEventListener("click", function() {
+            const userValue = userInput.value;
+            if (userValue === expectedValue) {
+                content.style.display = "block"; // Hiển thị trang chúc mừng
+                input.style.display = "none"; // Hiển thị trang chúc mừng
+            } else {
+                alert("Bạn không phải vợ tôi rồi ! Hãy thử lại."); // Thông báo nếu không khớp
+            }
+        });
     </script>
   </body>
 </html>
