@@ -55,6 +55,38 @@
       .celebrate-btn:hover {
         background-color: #ff6699;
       }
+   
+    .balloon {
+        position: absolute;
+        bottom: -100px; /* Bắt đầu bên dưới màn hình */
+        opacity: 0.8;
+        animation: balloonsUp 8s forwards ease-in; /* Hiệu ứng bay lên */
+        width: 100px;
+        aspect-ratio: 1;
+        object-fit: cover;
+        --_m: radial-gradient(#000 69%,#0000 70%) 84.5%/50%;
+        -webkit-mask-box-image: var(--_m);
+                    mask-border: var(--_m);
+        clip-path: polygon(-41% 0,50% 91%, 141% 0);
+    }
+
+    /* fallback until better support for mask-border */
+        @supports not (-webkit-mask-box-image: var(--_m)) { 
+        img {
+        --_m:
+            radial-gradient(at 70% 31%,#000 29%,#0000 30%),
+            radial-gradient(at 30% 31%,#000 29%,#0000 30%),
+            linear-gradient(#000 0 0) bottom/100% 50% no-repeat;
+        -webkit-mask: var(--_m);
+                mask: var(--_m);
+        }
+    }
+
+
+    @keyframes balloonsUp {
+        0% { bottom: -100px; transform: translateX(0); }
+        100% { bottom: 120vh; transform: translateX(calc(-50% + random(-100px, 100px))); }
+    }
 
       @keyframes fadeIn {
         from {
@@ -102,6 +134,32 @@
         fireworks.start();
       }
 
+// Danh sách các hình ảnh bóng bay
+    const balloonImages = [
+    "./assets/img/img1.jpg",
+    "./assets/img/img2.jpg",
+    ];
+     let imgIndex = 0
+
+    // Hàm tạo bóng bay với hình ảnh ngẫu nhiên
+    function createBalloon() {
+        const balloon = document.createElement("img");
+        if(imgIndex === balloonImages.length) {
+            imgIndex = 0
+        }
+        const randomImage = balloonImages[imgIndex]; 
+        imgIndex ++
+        balloon.src = randomImage;
+        balloon.classList.add("balloon");
+        balloon.style.left = `${Math.random() * 90}vw`; // Đặt vị trí ngẫu nhiên theo chiều ngang
+        container.appendChild(balloon);
+
+        // Xóa bóng bay sau khi bay lên
+        balloon.addEventListener("animationend", () => {
+            balloon.remove();
+        });
+    }
+
       // Gán sự kiện click cho nút
       button.addEventListener("click", function () {
         if (fireworks) {
@@ -110,6 +168,10 @@
         container.style.backgroundColor = "black";
         content.style.display = "none";
         startFireworks(); // Khởi động lại pháo hoa
+        // Tạo bóng bay mỗi giây
+        const balloonInterval = setInterval(() => {
+            createBalloon();
+        }, 1000);
       });
     </script>
   </body>
