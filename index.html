@@ -171,20 +171,62 @@
 
 // Danh sách các hình ảnh bóng bay
     const balloonImages = [
-    "./assets/img/img1.jpg",
-    "./assets/img/img2.jpg",
+    "./assets/img/IMG_1332.JPG",
+    "./assets/img/IMG_1333.JPG",
+    "./assets/img/IMG_1334.JPG",
+    "./assets/img/IMG_1335.JPG",
+    "./assets/img/IMG_1336.JPG",
+    "./assets/img/IMG_1337.JPG",
+    "./assets/img/IMG_1338.JPG",
+    "./assets/img/IMG_1339.JPG",
+    "./assets/img/IMG_1340.JPG",
+    "./assets/img/IMG_1341.JPG",
+    "./assets/img/IMG_1342.JPG",
+    "./assets/img/IMG_1343.JPG",
+    "./assets/img/IMG_1344.JPG",
+    "./assets/img/IMG_1345.JPG",
+    "./assets/img/IMG_1346.JPG",
+    "./assets/img/IMG_1347.JPG",
+    "./assets/img/IMG_1348.JPG",
+    "./assets/img/IMG_1349.JPG",
+    "./assets/img/IMG_1350.JPG",
+    "./assets/img/IMG_1351.JPG",
+    "./assets/img/IMG_1352.JPG",
+    "./assets/img/IMG_1353.JPG",
+    "./assets/img/IMG_1354.JPG",
+    "./assets/img/IMG_1355.JPG",
+    "./assets/img/IMG_1356.JPG",
+    "./assets/img/IMG_1357.JPG",
+    "./assets/img/IMG_1358.JPG",
+    "./assets/img/IMG_1359.JPG",
+    "./assets/img/IMG_1360.JPG",
+    "./assets/img/IMG_1361.JPG",
+    "./assets/img/IMG_1362.JPG",
+    "./assets/img/IMG_1363.JPG",
+    "./assets/img/IMG_1364.JPG",
+    "./assets/img/IMG_1365.JPG",
+    "./assets/img/IMG_1366.JPG",
+    "./assets/img/IMG_1367.JPG",
+    "./assets/img/IMG_1368.JPG",
     ];
      let imgIndex = 0
+     // Tạo mảng chứa các hình ảnh đã tải trước
+  const preloadedImages = [];
+  balloonImages.forEach((src) => {
+    const img = new Image();
+    img.src = src;
+    preloadedImages.push(img);
+  });
+
 
     // Hàm tạo bóng bay với hình ảnh ngẫu nhiên
     function createBalloon() {
         const balloon = document.createElement("img");
-        if(imgIndex === balloonImages.length) {
+        if(imgIndex === preloadedImages.length) {
             imgIndex = 0
         }
-        const randomImage = balloonImages[imgIndex]; 
         imgIndex ++
-        balloon.src = randomImage;
+        balloon.src = preloadedImages[imgIndex].src;;
         balloon.classList.add("balloon");
         balloon.style.left = `${Math.random() * 90}vw`; // Đặt vị trí ngẫu nhiên theo chiều ngang
         container.appendChild(balloon);
@@ -201,16 +243,17 @@
         if (fireworks) {
           fireworks.stop(); // Dừng pháo hoa nếu đã chạy
         }
-        container.style.backgroundImage = "linear-gradient(0,rgba(0,0,0, 0.5),rgba(0,0,0, 0.5)),url('./assets/img/img1.jpg')"
+        container.style.backgroundImage = "linear-gradient(0,rgba(0,0,0, 0.5),rgba(0,0,0, 0.5)),url('./assets/img/IMG_1358.JPG')"
         container.style.backgroundOrigin = "border-box"
         container.style.backgroundRepeat = "no-repeat"
         container.style.backgroundSize = "cover"
+        container.style.backgroundPosition= "center"
         content.style.display = "none";
         startFireworks(); // Khởi động lại pháo hoa
         // Tạo bóng bay mỗi giây
         const balloonInterval = setInterval(() => {
             createBalloon();
-        }, 1000);
+        }, 3000);
       });
       // Hàm xử lý sự kiện nhấn nút kiểm tra
         submitButton.addEventListener("click", function() {
